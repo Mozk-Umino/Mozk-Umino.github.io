@@ -6,6 +6,8 @@
   groups     … 活動の分類（BOOKS / TECH / WORKS / JOURNAL）
   activities … 活動ごとの説明・おすすめ・代表作・公式リンク。group で分類に入る。フッターのリンク集もここから作る
   schedule   … 更新案内の表
+  activities の latest と、schedule の freq の一部（本屋さん・はてな・Qiita・note）は
+  scripts/update.mjs が週1で書き換える（.github/workflows/update.yml）。手で直しても次回で上書きされる
 -->
 <script type="application/json" id="data">
 {
@@ -25,17 +27,17 @@
       {"title": "3つの質問で、今日読む本を選ぶ", "url": "https://mozk-books.com/find/"},
       {"title": "Kindleマンガ セール中の本一覧", "url": "https://mozk-books.com/manga-sale/"},
       {"title": "Kindleで無料・0円で読める本の棚", "url": "https://mozk-books.com/zero-sale/"}
-    ], "url": "https://mozk-books.com/"},
+    ], "url": "https://mozk-books.com/", "latest": {"title": "バートランド・ラッセル 幸福論200円ほか｜Kindleセール（2026/10/27）", "url": "https://mozk-books.com/posts/sale-2026-10-27/", "date": "2026-10-27"}},
     {"group": "tech", "name": "Qiita", "what": "仕事や個人開発でハマったところの解決メモを置いています。Google Apps Script・Google Drive・サーバー設定の記事が中心で、最近はAIに作業をさせてみた記録も書いています。", "forWho": "GASやGoogle Driveで同じところに詰まった人に", "works": [
       {"title": "Google Drive にある画像をimgタグで取得させるURLについて", "url": "https://qiita.com/TechnoKuRo/items/622c3dcc2ff3f7e09474"},
       {"title": "GASを別アカウント・他人アカウントで実行させるトリガーを作成するベストプラクティス", "url": "https://qiita.com/TechnoKuRo/items/94ddbc83cefb2049a746"},
       {"title": "大量のフォーム営業メールの自動リプライや返信の整理を Claude Desktop にさせてみた", "url": "https://qiita.com/TechnoKuRo/items/4f05522196598d9f6761"}
-    ], "url": "https://qiita.com/TechnoKuRo"},
+    ], "url": "https://qiita.com/TechnoKuRo", "latest": {"title": "Googleドライブの所有者がバラバラだったのでGASで整理した", "url": "https://qiita.com/TechnoKuRo/items/01980f1abe6286ac4154", "date": "2026-07-15"}},
     {"group": "tech", "name": "note", "what": "AIエージェント（Claude Code）と一緒に作業するときの運用を書いています。毎回の説明を省くファイルの置き方や、同じ失敗を繰り返させない指示の書き方など、実際に使っているやり方です。", "forWho": "Claude Code を使い始めて、指示の出し方に迷っている人に", "works": [
       {"title": "Claude Codeに同じ失敗を繰り返させないCLAUDE.mdの書き方", "url": "https://note.com/100_99_1e12/n/ne7494ea806c9"},
       {"title": "Claude Codeに毎回状況説明をしなくて済むTODO.md運用", "url": "https://note.com/100_99_1e12/n/n3ac20ae9b347"},
       {"title": "claude updateしても新機能が使えないときは、Claude Codeが2つ入っていないか見る", "url": "https://note.com/100_99_1e12/n/nbc505aa897a1"}
-    ], "url": "https://note.com/100_99_1e12"},
+    ], "url": "https://note.com/100_99_1e12", "latest": {"title": "Claude Codeに毎回状況説明をしなくて済むTODO.md運用", "url": "https://note.com/100_99_1e12/n/n3ac20ae9b347", "date": "2026-10-20"}},
     {"group": "tech", "name": "vMozk（$MOZK）", "what": "AIエージェントを作って公開できる仕組み「Virtuals Protocol」で、2025年に作ったもずくの分身のAIエージェントです。AIやブロックチェーンの話題に興味がある海藻、という設定です。", "forWho": "AIエージェントやWeb3の実物を見てみたい人に", "works": [], "url": "https://app.virtuals.io/virtuals/21308"},
     {"group": "works", "name": "LINEスタンプ", "what": "「耳毛ウーパールーパーおじさん」のスタンプを作っています。ゆるい返事や、ぼそっとしたひと言に使えるセリフ付きのスタンプです。", "forWho": "力の抜けた返事をスタンプで済ませたい人に", "works": [
       {"title": "ぼそっと耳毛ウーパールーパーおじさん", "url": "https://store.line.me/stickershop/product/37444849/ja"},
@@ -54,17 +56,17 @@
       {"title": "SV版ポケモンデータのCSVを作りました", "url": "https://mozukuofsea.hateblo.jp/entry/20250803/1754186286"},
       {"title": "ポケポケのデータ引継で「アカウント連携中に異常がありました」が出た", "url": "https://mozukuofsea.hateblo.jp/entry/20260129/1769693315"},
       {"title": "カラオケアプリUTAOのコラボ・セルフコラボのやり方", "url": "https://mozukuofsea.hateblo.jp/entry/20250509/1746763521"}
-    ], "url": "https://mozukuofsea.hateblo.jp/"},
+    ], "url": "https://mozukuofsea.hateblo.jp/", "latest": {"title": "MacBook Air(M2)のキーボードカバーを切り刻んでみた話", "url": "https://mozukuofsea.hateblo.jp/entry/20261031/1793453179", "date": "2026-10-31"}},
     {"group": "journal", "name": "X（もずく・らてっくす）", "what": "本・ポケモン・ぷよぷよのこと、ブログやLINEスタンプのお知らせなどをつぶやいています。", "forWho": "更新のお知らせを追いたい人に", "works": [], "url": "https://x.com/100_99_1e12"},
     {"group": "journal", "name": "楽天ROOM", "what": "買って使ったものを紹介しています。", "forWho": "", "works": [], "url": "https://room.rakuten.co.jp/room_9c189b1a77"}
   ],
   "cast": {"name": "店員さん1号（もも）", "role": "もずくの本屋さんの宣伝担当。Kindleのセール本や期間限定の無料本を、価格の確認日つきでXで紹介しています。", "url": "https://x.com/momo_0book"},
   "schedule": [
-    {"where": "もずくの本屋さん", "what": "Kindleのセール本の紹介記事", "freq": "週3〜4本（2026年9〜10月の実績）"},
+    {"where": "もずくの本屋さん", "what": "Kindleのセール本の紹介記事", "freq": "週4本前後（直近8週の平均）"},
     {"where": "店員さん1号（もも）／ X", "what": "セール本の紹介", "freq": "不定期"},
-    {"where": "はてなブログ", "what": "解決法・自作ツール・雑記", "freq": "不定期（2026年は月1〜11本）"},
-    {"where": "Qiita", "what": "技術メモ", "freq": "不定期（2026年は4本）"},
-    {"where": "note", "what": "AIエージェントとの作業の運用", "freq": "不定期（2026年10月に3本）"},
+    {"where": "はてなブログ", "what": "解決法・自作ツール・雑記", "freq": "不定期（直近3か月で14本）"},
+    {"where": "Qiita", "what": "技術メモ", "freq": "不定期（直近3か月は更新なし）"},
+    {"where": "note", "what": "AIエージェントとの作業の運用", "freq": "不定期（直近3か月で3本）"},
     {"where": "LINEスタンプ", "what": "新しいセット", "freq": "不定期"},
     {"where": "BOOTH", "what": "管理表", "freq": "不定期"},
     {"where": "X（もずく・らてっくす）", "what": "つぶやき・お知らせ", "freq": "不定期"},
@@ -132,6 +134,7 @@ th{white-space:nowrap;color:var(--sub);font-weight:600}
 .act p{font-size:.9rem}
 .for{font-size:.82rem;background:var(--tint);border-radius:6px;padding:4px 10px;display:inline-block;margin-bottom:10px}
 .act ul{margin:0 0 10px;padding-left:1.2em;font-size:.9rem}
+.latest{font-size:.85rem;margin:0 0 10px}
 .act li{margin-bottom:4px;overflow-wrap:anywhere}
 .official{font-size:.78rem;color:var(--sub);overflow-wrap:anywhere}
 .official a{color:var(--sub)}
@@ -209,6 +212,7 @@ for (const g of data.groups) {
       el('p', {textContent: a.what}),
       ...(a.forWho ? [el('div', {className: 'for', textContent: a.forWho})] : []),
       ...(a.works.length ? [el('ul', {}, ...a.works.map(w => el('li', {}, ext(w.url, w.title))))] : []),
+      ...(a.latest ? [el('div', {className: 'latest'}, '最新: ', ext(a.latest.url, a.latest.title), `（${a.latest.date}）`)] : []),
       el('div', {className: 'official'}, '公式: ', ext(a.url, a.url.replace(/^https?:\/\//, '').replace(/\/$/, '')))));
   }
   document.getElementById('groups').append(sec);

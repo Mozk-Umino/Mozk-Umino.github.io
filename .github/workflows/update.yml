@@ -1,0 +1,30 @@
+# 週1で scripts/update.mjs を回し、最新の記事・更新の本数・リンク切れを反映する
+name: update
+on:
+  schedule:
+    - cron: '0 21 * * 0'  # 月曜 6:00 JST
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - id: run
+        run: node scripts/update.mjs
+        env:
+          BANNED_WORDS: ${{ secrets.BANNED_WORDS }}
+        continue-on-error: true
+      # 問題（禁止語・リンク切れ）があっても、取れた分は反映する。禁止語に当たった記事は載せていない
+      - run: |
+          git diff --quiet && exit 0
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -am '最新の記事と更新の本数を反映（自動）'
+          git push
+      - if: steps.run.outcome == 'failure'
+        run: echo '::error::禁止語かリンク切れがある。update ステップのログを見る' && exit 1
