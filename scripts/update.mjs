@@ -11,8 +11,9 @@ const FILE = new URL('../index.html', import.meta.url);
 // 載せない語。中身は公開できないので環境変数 BANNED_WORDS（リポジトリの secret。1行1つの正規表現）から読む
 // 取ってきた記事のタイトル・URL に当たったら載せない。無ければ守れないので動かない
 const BANNED = (process.env.BANNED_WORDS || '').split('\n').map(s => s.trim()).filter(Boolean).map(s => new RegExp(s, 'i'));
-// 動かないのに 403 を返すだけのもの（BOOTH のショップトップはプログラムからだと 403）
-const BOT_BLOCKED = [/^https:\/\/mozk-latex\.booth\.pm\/$/];
+// 確かめられないので飛ばすもの。BOOTH のショップトップはプログラムからだと 403、
+// X は GitHub Actions からだと 403（しかも無いアカウントでも 200 を返すので、開けても確認にならない）
+const BOT_BLOCKED = [/^https:\/\/mozk-latex\.booth\.pm\/$/, /^https:\/\/x\.com\//];
 
 const UA = {'User-Agent': 'Mozilla/5.0 (mozk-umino.github.io update)'};
 // 一時的な接続切れで騒がないよう、失敗したら10秒おいて1回だけやり直す
