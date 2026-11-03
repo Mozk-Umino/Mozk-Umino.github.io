@@ -3,19 +3,22 @@
 <!-- リンクの追加・変更は下の id="links" の配列だけ編集する -->
 <script type="application/json" id="links">
 [
-  {"section": "本の活動", "items": [
+  {"icon": "📚", "section": "本の紹介", "items": [
     {"name": "もずくの本屋さん", "desc": "Kindleセール本（マンガ・ビジネス書中心）のキュレーション", "url": "https://mozk-books.com/"},
     {"name": "店員さん1号（もも）／ X", "desc": "本屋さんの宣伝担当", "url": "https://x.com/momo_0book"}
   ]},
-  {"section": "本人の発信", "items": [
-    {"name": "もずくゆらゆらぶろぐ（はてなブログ）", "desc": "自作ツール・AI・日常", "url": "https://mozukuofsea.hateblo.jp/"},
-    {"name": "note", "desc": "記事", "url": "https://note.com/100_99_1e12"},
+  {"icon": "⚙️", "section": "技術系", "items": [
     {"name": "Qiita", "desc": "技術記事", "url": "https://qiita.com/TechnoKuRo"},
-    {"name": "X（本人）", "desc": "", "url": "https://x.com/100_99_1e12"}
-  ]},
-  {"section": "つくったもの", "items": [
-    {"name": "LINEスタンプ", "desc": "耳毛ウーパールーパーおじさん ほか", "url": "https://store.line.me/stickershop/author/5214317/ja"},
+    {"name": "note", "desc": "記事", "url": "https://note.com/100_99_1e12"},
     {"name": "vMozk（$MOZK）", "desc": "Virtuals 上の AI エージェント", "url": "https://app.virtuals.io/virtuals/21308"}
+  ]},
+  {"icon": "💡", "section": "制作", "items": [
+    {"name": "LINEスタンプ", "desc": "耳毛ウーパールーパーおじさん ほか", "url": "https://store.line.me/stickershop/author/5214317/ja"},
+    {"name": "ポケポケ デッキQR", "desc": "ポケポケのデッキを読み込めるQRコードを作るツール", "url": "https://mozk-umino.github.io/mozk-poke2-qr/"}
+  ]},
+  {"icon": "💬", "section": "ブログ・SNS", "items": [
+    {"name": "もずくゆらゆらぶろぐ（はてなブログ）", "desc": "自作ツール・AI・日常", "url": "https://mozukuofsea.hateblo.jp/"},
+    {"name": "X（本人）", "desc": "", "url": "https://x.com/100_99_1e12"}
   ]}
 ]
 </script>
@@ -43,7 +46,7 @@ header{text-align:center;margin-bottom:28px}
 header img{width:96px;height:96px;border-radius:50%;object-fit:cover}
 h1{font-size:1.4rem;margin:12px 0 6px}
 header p{margin:0;color:var(--sub);font-size:.92rem}
-h2{font-size:.85rem;color:var(--sub);margin:24px 0 8px;letter-spacing:.05em}
+h2{font-size:.95rem;color:var(--text);margin:28px 0 8px;letter-spacing:.05em}
 a.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:8px;color:inherit;text-decoration:none;overflow-wrap:anywhere}
 a.card:hover,a.card:focus-visible{border-color:var(--accent)}
 a.card b{display:block;color:var(--accent)}
@@ -63,7 +66,7 @@ a.card span{font-size:.85rem;color:var(--sub)}
 const el = (tag, props, ...kids) => { const e = Object.assign(document.createElement(tag), props); e.append(...kids); return e; };
 const list = document.getElementById('list');
 for (const s of JSON.parse(document.getElementById('links').textContent)) {
-  list.append(el('h2', {textContent: s.section}));
+  list.append(el('h2', {textContent: (s.icon ? s.icon + ' ' : '') + s.section}));
   for (const i of s.items) {
     list.append(el('a', {className: 'card', href: i.url, target: '_blank', rel: 'noopener'},
       el('b', {textContent: i.name}), ...(i.desc ? [el('span', {textContent: i.desc})] : [])));
