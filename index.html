@@ -190,6 +190,7 @@ footer p{margin-top:16px;font-size:.75rem;color:var(--sub)}
   <footer>
     <div class="eyebrow">LINKS</div>
     <ul id="links"></ul>
+    <p>このページは Google アナリティクスで閲覧数とリンクのクリック先を集計しています（Cookie を使います。ブラウザの設定で無効にできます）。詳しくは <a href="https://policies.google.com/technologies/partner-sites?hl=ja" target="_blank" rel="noopener">Google のポリシー</a>。</p>
     <p>© もずく・らてっくす</p>
   </footer>
 </main>
@@ -228,6 +229,12 @@ for (const s of data.schedule) {
 
 const links = document.getElementById('links');
 for (const a of [data.activities[0], {name: c.name, url: c.url}, ...data.activities.slice(1)]) links.append(el('li', {}, ext(a.url, a.name)));
+document.addEventListener('click', e => {
+  const a = e.target.closest('a[href^="http"]');
+  if (!a || typeof gtag !== 'function') return;
+  const sec = a.closest('section, .picks, #picklist, footer, #cast');
+  gtag('event', 'hub_click', {link_url: a.href, block: sec ? (sec.id || sec.tagName.toLowerCase()) : 'other'});
+});
 </script>
 </body>
 </html>
