@@ -13,7 +13,7 @@
 {
   "picks": [
     {"title": "SV版ポケモンデータのCSVを作りました", "summary": "Excelでダメージ計算などを作れるよう、ポケモンSV版のデータをCSVにまとめた記事。ブログでいちばん読まれています。", "thumb": "https://cdn.image.st-hatena.com/image/scale/4665c05abc7d21cbfe680a01a9f698f2b04fee45/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fm%2Fmozukuofsea%2F20250803%2F20250803104420.png", "label": "JOURNAL", "url": "https://mozukuofsea.hateblo.jp/entry/20250803/1754186286"},
-    {"title": "3つの質問で、今日読む本を選ぶ", "summary": "気分・予算・読み放題の3つに答えると、いまセール中のKindle本から3冊を選びます。", "thumb": "https://mozk-books.com/avatar.jpg", "label": "BOOKS", "url": "https://mozk-books.com/find/"},
+    {"title": "3つの質問で、今日読む本を選ぶ", "summary": "気分・予算・読み放題の3つに答えると、いまセール中のKindle本から3冊を選びます。", "thumb": "https://mozk-books.com/avatar.jpg", "label": "BOOKS", "url": "https://mozk-books.com/toshonator/"},
     {"title": "ポケポケ デッキQR", "summary": "ポケポケのデッキをURLで共有し、ゲームで読み込めるQRコードにするツール。AIにデッキを組ませて、そのまま読み込めます。", "thumb": "https://mozk-umino.github.io/mozk-poke2-qr/assets/og.png", "label": "WORKS", "url": "https://mozk-umino.github.io/mozk-poke2-qr/"}
   ],
   "groups": [
@@ -24,7 +24,7 @@
   ],
   "activities": [
     {"group": "books", "name": "もずくの本屋さん", "what": "Kindleのセール本を、商品ページで価格を実際に確かめてから紹介しているサイトです。マンガ・ビジネス書・小説のジャンル別の棚と、無料・0円で読める本の棚があり、どの本にも価格の確認日を付けています。", "forWho": "安くなっている本を、外れなく手早く見つけたい人に", "works": [
-      {"title": "3つの質問で、今日読む本を選ぶ", "url": "https://mozk-books.com/find/"},
+      {"title": "3つの質問で、今日読む本を選ぶ", "url": "https://mozk-books.com/toshonator/"},
       {"title": "Kindleマンガ セール中の本一覧", "url": "https://mozk-books.com/manga-sale/"},
       {"title": "Kindleで無料・0円で読める本の棚", "url": "https://mozk-books.com/zero-sale/"}
     ], "url": "https://mozk-books.com/", "latest": {"title": "バートランド・ラッセル 幸福論200円ほか｜Kindleセール（2026/10/27）", "url": "https://mozk-books.com/posts/sale-2026-10-27/", "date": "2026-10-27"}},
@@ -229,6 +229,23 @@ for (const s of data.schedule) {
 
 const links = document.getElementById('links');
 for (const a of [data.activities[0], {name: c.name, url: c.url}, ...data.activities.slice(1)]) links.append(el('li', {}, ext(a.url, a.name)));
+// ハブから mozk-books.com への送客を GA4 で判別するための UTM 付与（2026-11-06）。
+// データJSONには書かない: 週次更新（scripts/update.mjs）が latest を差し替えても、表示側で付ければ消えない。
+// 付けるのは mozk-books.com のリンクだけ。同一ドメイン内と、他人の GA で見る先には付けない。
+for (const a of document.querySelectorAll('a[href^="https://mozk-books.com"]')) {
+  const url = new URL(a.href);
+  url.searchParams.set('utm_source', 'hub');
+  url.searchParams.set('utm_medium', 'referral');
+  url.searchParams.set('utm_campaign', 'profile');
+  const content = a.closest('footer') ? 'footer'
+    : a.closest('#picklist') ? 'pick'
+    : a.closest('.latest') ? 'latest'
+    : a.closest('.official') ? 'official'
+    : a.closest('li') ? 'work'
+    : 'activity';
+  url.searchParams.set('utm_content', content);
+  a.href = url.toString();
+}
 document.addEventListener('click', e => {
   const a = e.target.closest('a[href^="http"]');
   if (!a || typeof gtag !== 'function') return;
