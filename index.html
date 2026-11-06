@@ -12,7 +12,7 @@
 <script type="application/json" id="data">
 {
   "picks": [
-    {"title": "としょネーター｜質問に答えて今日の1冊を探す", "summary": "気分やジャンルなどの質問に答えると、セール中のKindle本から今日読む1冊を選びます。案内役は店員さん1号のもも。", "thumb": "https://mozk-books.com/img/og-find.png", "label": "BOOKS", "url": "https://mozk-books.com/toshonator/", "featured": true},
+    {"title": "としょネーター｜質問に答えて今日の1冊を探す", "summary": "mozBooks ―もずくの本棚の本探し機能。気分やジャンルなどの質問に答えると、セール中のKindle本から今日読む1冊を選びます。案内役は店員さん1号のもも。", "thumb": "https://mozk-books.com/img/og-find.png", "label": "BOOKS", "url": "https://mozk-books.com/toshonator/", "featured": true},
     {"title": "SV版ポケモンデータのCSVを作りました", "summary": "Excelでダメージ計算などを作れるよう、ポケモンSV版のデータをCSVにまとめた記事。ブログでいちばん読まれています。", "thumb": "https://cdn.image.st-hatena.com/image/scale/4665c05abc7d21cbfe680a01a9f698f2b04fee45/backend=imagemagick;version=1;width=1300/https%3A%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fm%2Fmozukuofsea%2F20250803%2F20250803104420.png", "label": "JOURNAL", "url": "https://mozukuofsea.hateblo.jp/entry/20250803/1754186286"},
     {"title": "ポケポケ デッキQR", "summary": "ポケポケのデッキをURLで共有し、ゲームで読み込めるQRコードにするツール。AIにデッキを組ませて、そのまま読み込めます。", "thumb": "https://mozk-umino.github.io/mozk-poke2-qr/assets/og.png", "label": "WORKS", "url": "https://mozk-umino.github.io/mozk-poke2-qr/"}
   ],
@@ -23,8 +23,7 @@
     {"id": "journal", "label": "JOURNAL", "name": "ブログ・SNS", "note": "雑記、気まぐれ更新"}
   ],
   "activities": [
-    {"group": "books", "name": "もずくの本屋さん", "thumb": "https://mozk-books.com/img/og-mozbooks.png", "what": "Kindleのセール本を、商品ページで価格を実際に確かめてから紹介しているサイトです。マンガ・ビジネス書・小説のジャンル別の棚と、無料・0円で読める本の棚があり、どの本にも価格の確認日を付けています。", "forWho": "安くなっている本を、外れなく手早く見つけたい人に", "works": [
-      {"title": "としょネーター｜質問に答えて今日の1冊を探す", "url": "https://mozk-books.com/toshonator/"},
+    {"group": "books", "name": "もずくの本屋さん", "thumb": "https://mozk-books.com/img/og-mozbooks.png", "what": "Kindleのセール本を、商品ページで価格を実際に確かめてから紹介しているサイトです。マンガ・ビジネス書・小説のジャンル別の棚と、無料・0円で読める本の棚があり、どの本にも価格の確認日を付けています。", "forWho": "安くなっている本を、外れなく手早く見つけたい人に", "feature": {"title": "としょネーター｜質問に答えて今日の1冊を探す", "summary": "mozBooksの本探し機能。質問に答えると、案内役のももがセール本から今日の1冊を選びます。", "thumb": "https://mozk-books.com/img/og-find.png", "url": "https://mozk-books.com/toshonator/"}, "works": [
       {"title": "Kindleマンガ セール中の本一覧", "url": "https://mozk-books.com/manga-sale/"},
       {"title": "Kindleで無料・0円で読める本の棚", "url": "https://mozk-books.com/zero-sale/"}
     ], "url": "https://mozk-books.com/", "latest": {"title": "バートランド・ラッセル 幸福論200円ほか｜Kindleセール（2026/10/27）", "url": "https://mozk-books.com/posts/sale-2026-10-27/", "date": "2026-10-27"}},
@@ -143,6 +142,10 @@ th{white-space:nowrap;color:var(--sub);font-weight:600}
 .act{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:12px;overflow:hidden}
 .act-thumb{display:block;width:calc(100% + 32px);max-width:none;margin:-16px -16px 12px;aspect-ratio:1200/630;object-fit:cover;background:var(--tint)}
 .act-thumb.contain{object-fit:contain}
+.feature{display:flex;gap:12px;align-items:center;background:var(--tint);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:0 0 12px;text-decoration:none;color:inherit}
+.feature img{width:104px;aspect-ratio:1200/630;object-fit:cover;border-radius:8px;flex:none;background:var(--card)}
+.feature b{display:block;color:var(--accent);font-size:.95rem}
+.feature span{font-size:.82rem;color:var(--sub)}
 .act p{font-size:.9rem}
 .for{font-size:.82rem;background:var(--tint);border-radius:6px;padding:4px 10px;display:inline-block;margin-bottom:10px}
 .act ul{margin:0 0 10px;padding-left:1.2em;font-size:.9rem}
@@ -229,6 +232,7 @@ for (const g of data.groups) {
       el('h3', {textContent: a.name}),
       el('p', {textContent: a.what}),
       ...(a.forWho ? [el('div', {className: 'for', textContent: a.forWho})] : []),
+      ...(a.feature ? [el('a', {className: 'feature', href: a.feature.url, target: '_blank', rel: 'noopener'}, el('img', {src: a.feature.thumb, alt: '', loading: 'lazy'}), el('div', {}, el('b', {textContent: a.feature.title}), el('span', {textContent: a.feature.summary})))] : []),
       ...(a.works.length ? [el('ul', {}, ...a.works.map(w => el('li', {}, ext(w.url, w.title))))] : []),
       ...(a.latest ? [el('div', {className: 'latest'}, '最新: ', ext(a.latest.url, a.latest.title), `（${a.latest.date}）`)] : []),
       el('div', {className: 'official'}, '公式: ', ext(a.url, a.url.replace(/^https?:\/\//, '').replace(/\/$/, '')))));
@@ -251,6 +255,7 @@ for (const a of document.querySelectorAll('a[href^="https://mozk-books.com"]')) 
   url.searchParams.set('utm_medium', 'referral');
   url.searchParams.set('utm_campaign', 'profile');
   const content = a.closest('.hero-cta') ? 'hero'
+    : a.closest('.feature') ? 'feature'
     : a.closest('footer') ? 'footer'
     : a.closest('#picklist') ? 'pick'
     : a.closest('.latest') ? 'latest'
