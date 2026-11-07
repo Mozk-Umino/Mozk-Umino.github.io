@@ -40,10 +40,11 @@
     ], "url": "https://note.com/100_99_1e12", "latest": {"title": "Claude Codeに毎回状況説明をしなくて済むTODO.md運用", "url": "https://note.com/100_99_1e12/n/n3ac20ae9b347", "date": "2026-10-20"}},
     {"group": "tech", "name": "vMozk（$MOZK）", "what": "AIエージェントを作って公開できる仕組み「Virtuals Protocol」で、2025年に作ったもずくの分身のAIエージェントです。AIやブロックチェーンの話題に興味がある海藻、という設定です。", "forWho": "AIエージェントやWeb3の実物を見てみたい人に", "works": [], "url": "https://app.virtuals.io/virtuals/21308"},
     {"group": "works", "name": "LINEスタンプ", "thumb": "https://stickershop.line-scdn.net/stickershop/v1/product/37444849/LINEStorePC/main.png;v=7", "thumbFit": "contain", "what": "「耳毛ウーパールーパーおじさん」のスタンプを作っています。ゆるい返事や、ぼそっとしたひと言に使えるセリフ付きのスタンプです。", "forWho": "力の抜けた返事をスタンプで済ませたい人に", "works": [
-      {"title": "ぼそっと耳毛ウーパールーパーおじさん", "url": "https://store.line.me/stickershop/product/37444849/ja"},
+      {"title": "耳毛ウーパールーパーの投げやり返事", "url": "https://store.line.me/stickershop/product/37724045/ja"},
+    {"title": "ぼそっと耳毛ウーパールーパーおじさん", "url": "https://store.line.me/stickershop/product/37444849/ja"},
       {"title": "適当に返す耳毛ウーパールーパーおじさん", "url": "https://store.line.me/stickershop/product/36750025/ja"},
       {"title": "表情豊かな耳毛ウーパールーパーおじさん", "url": "https://store.line.me/stickershop/product/29482083/ja"}
-    ], "url": "https://store.line.me/stickershop/author/5214317/ja"},
+    ], "url": "https://store.line.me/stickershop/author/5214317/ja", "urlLabel": "もずくのスタンプ一覧"},
     {"group": "works", "name": "ポケポケ デッキQR", "thumb": "https://mozk-umino.github.io/mozk-poke2-qr/assets/og.png", "what": "ポケポケのデッキをURLで共有し、ゲームで読み込めるQRコードにするツールです。デッキ作りが面倒になったので、AIにデッキを組ませて読み込めるようにしました。", "forWho": "ポケポケのデッキを考えるのが面倒になってきた人に", "works": [
       {"title": "ツールを開く", "url": "https://mozk-umino.github.io/mozk-poke2-qr/"},
       {"title": "作ったときの記事: ポケポケのデッキQRコードをAIに作らせるツールを作ってみた", "url": "https://mozukuofsea.hateblo.jp/entry/20261006/1791256899"}
@@ -236,7 +237,7 @@ for (const g of data.groups) {
       ...(a.feature ? [el('a', {className: 'feature', href: a.feature.url, target: '_blank', rel: 'noopener'}, el('img', {src: a.feature.thumb, alt: '', loading: 'lazy'}), el('div', {}, el('b', {textContent: a.feature.title}), el('span', {textContent: a.feature.summary})))] : []),
       ...(a.works.length ? [el('ul', {}, ...a.works.map(w => el('li', {}, ext(w.url, w.title))))] : []),
       ...(a.latest ? [el('div', {className: 'latest'}, '最新: ', ext(a.latest.url, a.latest.title), `（${a.latest.date}）`)] : []),
-      el('div', {className: 'official'}, '公式: ', ext(a.url, a.url.replace(/^https?:\/\//, '').replace(/\/$/, '')))));
+      el('div', {className: 'official'}, ...(a.urlLabel ? [ext(a.url, a.urlLabel)] : ['公式: ', ext(a.url, a.url.replace(/^https?:\/\//, '').replace(/\/$/, ''))]))));
   }
   document.getElementById('groups').append(sec);
 }
