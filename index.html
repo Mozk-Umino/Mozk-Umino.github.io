@@ -2,6 +2,10 @@
 <meta charset="utf-8">
 <!--
   中身の追加・差し替えは下の id="data" の JSON だけ編集する。
+  公開手順（プレビュー方式、2026-11-08から）: 内容の変更はまず preview/index.html に反映し、
+  https://mozk-umino.github.io/preview/ で本人が確認してから、同じ内容をこのファイル（本番）へ昇格する。
+  このファイルを直接編集して公開しない。scripts/update.mjs の週次自動更新（latest・頻度）は例外。
+  preview/index.html は本番の写しに GA除外・noindex・プレビュー帯・icon の ../ 化を施したもの。
   picks      … イチオシ（4点）
   groups     … 活動の分類（BOOKS / TECH / WORKS / JOURNAL）
   activities … 活動ごとの説明・おすすめ・代表作・公式リンク。group で分類に入る。フッターのリンク集もここから作る
