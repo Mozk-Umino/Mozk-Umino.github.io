@@ -1,0 +1,3 @@
+# Claude Code のローカル設定は秘密情報を含み得るため除外する（don't ask again で承認したコマンドが平文で保存される）
+.claude/settings.local.json
+**/.claude/settings.local.json
