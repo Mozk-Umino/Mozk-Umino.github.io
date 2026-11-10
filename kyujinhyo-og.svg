@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="rainbow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7c3aed"/>
+      <stop offset="0.25" stop-color="#2563eb"/>
+      <stop offset="0.5" stop-color="#06b6d4"/>
+      <stop offset="0.75" stop-color="#10b981"/>
+      <stop offset="1" stop-color="#ec4899"/>
+    </linearGradient>
+    <linearGradient id="btn" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7c3aed"/>
+      <stop offset="1" stop-color="#d946ef"/>
+    </linearGradient>
+    <linearGradient id="logo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7c3aed"/>
+      <stop offset="0.55" stop-color="#ec4899"/>
+      <stop offset="1" stop-color="#f97316"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#ffffff"/>
+  <ellipse cx="120" cy="40" rx="300" ry="150" fill="#ddd6fe" opacity="0.55"/>
+  <ellipse cx="1120" cy="30" rx="280" ry="150" fill="#a5f3fc" opacity="0.55"/>
+  <ellipse cx="600" cy="660" rx="420" ry="170" fill="#fbcfe8" opacity="0.5"/>
+  <rect x="72" y="64" width="56" height="56" rx="14" fill="url(#logo)"/>
+  <text x="148" y="106" font-family="sans-serif" font-weight="bold" font-size="38" fill="#111827">Kyujin.hyo</text>
+  <text x="72" y="248" font-family="sans-serif" font-weight="bold" font-size="64" fill="#111827">キュージンヒョージェネレーター</text>
+  <text x="72" y="368" font-family="sans-serif" font-weight="bold" font-size="88" fill="#111827">名前ひとつで、</text>
+  <text x="72" y="472" font-family="sans-serif" font-weight="bold" font-size="88" fill="url(#rainbow)">運命の求人へ。</text>
+  <rect x="72" y="516" width="330" height="68" rx="34" fill="url(#btn)"/>
+  <text x="237" y="562" font-family="sans-serif" font-weight="bold" font-size="30" fill="#ffffff" text-anchor="middle">マッチングを開始</text>
+  <text x="436" y="560" font-family="sans-serif" font-size="28" fill="#6b7280">名前を入れるだけで、架空の求人票ができます</text>
+</svg>
