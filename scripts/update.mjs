@@ -37,7 +37,7 @@ const SOURCES = [
   {activity: 'もずくゆらゆらぶろぐ（はてなブログ）', where: 'はてなブログ', fetch: async () =>
     tag(await get('https://mozukuofsea.hateblo.jp/feed'), 'entry').map(e => ({title: unxml(tag(e, 'title')[0]), url: e.match(/<link href="([^"]+)"/)[1], date: tag(e, 'published')[0]}))},
   {activity: 'Qiita', where: 'Qiita', fetch: async () =>
-    JSON.parse(await get('https://qiita.com/api/v2/users/TechnoKuRo/items?per_page=100')).map(i => ({title: i.title, url: i.url, date: i.created_at}))},
+    JSON.parse(await get('https://qiita.com/api/v2/users/MOZK_SEA/items?per_page=100')).map(i => ({title: i.title, url: i.url, date: i.created_at}))},
   {activity: 'note', where: 'note', fetch: async () =>
     JSON.parse(await get('https://note.com/api/v2/creators/100_99_1e12/contents?kind=note&page=1')).data.contents.map(c => ({title: c.name, url: `https://note.com/100_99_1e12/n/${c.key}`, date: c.publishAt}))},
 ];
