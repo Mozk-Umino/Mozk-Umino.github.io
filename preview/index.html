@@ -73,10 +73,13 @@
       {"title": "昼寝から起きた直後が一番ぼんやりするのはなぜか", "url": "https://www.youtube.com/watch?v=7l0DaCoyMEg"},
       {"title": "休みの日に寝だめしても、月曜の朝に戻れないのはなぜか", "url": "https://www.youtube.com/watch?v=jeOe-QSxMuA"}
     ], "url": "https://www.youtube.com/@mozuku_nazenaze", "latest": {"title": "休みの日に寝だめしても、月曜の朝に戻れないのはなぜか", "url": "https://www.youtube.com/watch?v=jeOe-QSxMuA", "date": "2026-11-14"}},
-    {"group": "journal", "name": "X（もずく・らてっくす）", "what": "本・ポケモン・ぷよぷよのこと、ブログやLINEスタンプのお知らせなどをつぶやいています。", "forWho": "更新のお知らせを追いたい人に", "works": [], "url": "https://x.com/100_99_1e12"},
-    {"group": "journal", "name": "楽天ROOM", "what": "買って使ったものを紹介しています。", "forWho": "", "works": [], "url": "https://room.rakuten.co.jp/room_9c189b1a77"}
+    {"group": "journal", "name": "X（もずく・らてっくす）", "what": "本・ポケモン・ぷよぷよのこと、ブログやLINEスタンプのお知らせなどをつぶやいています。", "forWho": "更新のお知らせを追いたい人に", "works": [], "url": "https://x.com/100_99_1e12"}
   ],
   "cast": {"name": "店員さん1号（もも）", "thumb": "https://mozk-books.com/img/momo/00_smile.webp", "role": "もずくの本屋さん（mozBooks）のセール見張り担当で、としょネーターの案内役。Kindleのセール本や期間限定の無料本を、価格の確認日つきでXで紹介しています。", "url": "https://x.com/momo_0book"},
+  "links": [
+    {"name": "楽天ROOM", "url": "https://room.rakuten.co.jp/room_9c189b1a77"},
+    {"name": "Amazonショップ", "url": "https://www.amazon.co.jp/shop/mozk100991106?ref=ac_inf_tb_vh"}
+  ],
   "schedule": [
     {"where": "もずくの本屋さん", "what": "Kindleのセール本の紹介記事", "freq": "週4本前後（直近8週の平均）"},
     {"where": "店員さん1号（もも）／ X", "what": "セール本の紹介", "freq": "不定期"},
@@ -86,7 +89,6 @@
     {"where": "LINEスタンプ", "what": "新しいセット", "freq": "不定期"},
     {"where": "BOOTH", "what": "管理表", "freq": "不定期"},
     {"where": "X（もずく・らてっくす）", "what": "つぶやき・お知らせ", "freq": "不定期"},
-    {"where": "楽天ROOM", "what": "使ったものの紹介", "freq": "不定期"},
     {"where": "もずくのなぜなぜ雑学／YouTube", "what": "日常の「なぜ？」の解説動画", "freq": "不定期"}
   ]
 }
@@ -270,6 +272,7 @@ for (const s of data.schedule) {
 
 const links = document.getElementById('links');
 for (const a of [data.activities[0], {name: c.name, url: c.url}, ...data.activities.slice(1)]) links.append(el('li', {}, ext(a.url, a.name)));
+for (const l of (data.links || [])) links.append(el('li', {}, ext(l.url, l.name)));
 // ハブから mozk-books.com への送客を GA4 で判別するための UTM 付与（2026-11-06）。
 // データJSONには書かない: 週次更新（scripts/update.mjs）が latest を差し替えても、表示側で付ければ消えない。
 // 付けるのは mozk-books.com のリンクだけ。同一ドメイン内と、他人の GA で見る先には付けない。
