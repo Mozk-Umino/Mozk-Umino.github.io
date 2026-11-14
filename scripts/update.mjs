@@ -32,7 +32,7 @@ const unxml = (s) => s.replace(/<!\[CDATA\[([\s\S]*?)\]\]>/, '$1').replace(/&amp
 
 // 各ソースは [{title, url, date}] を新しい順で返す
 const SOURCES = [
-  {activity: 'もずくの本屋さん', where: 'もずくの本屋さん', weekly: true, fetch: async () =>
+  {activity: 'mozBooks ―もずくの本棚', where: 'mozBooks ―もずくの本棚', weekly: true, fetch: async () =>
     tag(await get('https://mozk-books.com/rss.xml'), 'item').map(i => ({title: unxml(tag(i, 'title')[0]), url: unxml(tag(i, 'link')[0]), date: tag(i, 'pubDate')[0]}))},
   {activity: 'もずくゆらゆらぶろぐ（はてなブログ）', where: 'はてなブログ', fetch: async () =>
     tag(await get('https://mozukuofsea.hateblo.jp/feed'), 'entry').map(e => ({title: unxml(tag(e, 'title')[0]), url: e.match(/<link href="([^"]+)"/)[1], date: tag(e, 'published')[0]}))},
@@ -62,9 +62,12 @@ async function main() {
     const bad = items.filter(i => BANNED.some(b => b.test(i.title) || b.test(i.url)));
     for (const i of bad) alerts.push(`禁止語に当たったので載せなかった: ${i.title} ${i.url}`);
     const ok = items.filter(i => !bad.includes(i)).sort((a, b) => new Date(b.date) - new Date(a.date));
-    const act = data.activities.find(a => a.name === s.activity);
-    if (ok[0]) act.latest = {title: ok[0].title, url: ok[0].url, date: jst(ok[0].date)};
-    data.schedule.find(x => x.where === s.where).freq = freq(items, s.weekly);
+    // mozBooks はハブ側で「もずくの本屋さん」から改名。本番ページの昇格までは旧名でも当たるようにする
+    const alias = s.activity.startsWith('mozBooks') ? 'もずくの本屋さん' : null;
+    const act = data.activities.find(a => a.name === s.activity) || (alias && data.activities.find(a => a.name === alias));
+    if (ok[0] && act) act.latest = {title: ok[0].title, url: ok[0].url, date: jst(ok[0].date)};
+    const sched = data.schedule.find(x => x.where === s.where) || (alias && data.schedule.find(x => x.where === alias));
+    if (sched) sched.freq = freq(items, s.weekly);
   }
 
   // JSON は1件1行の今の形を保つため、変わったフィールドだけ文字列で差し替える
