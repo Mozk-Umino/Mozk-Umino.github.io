@@ -23,7 +23,7 @@
   ],
   "groups": [
     {"id": "books", "label": "BOOKS", "name": "本の紹介"},
-    {"id": "tech", "label": "TECH", "name": "技術・アプリ"},
+    {"id": "tech", "label": "TECH", "name": "技術・アプリ", "subs": ["アプリ", "記事"]},
     {"id": "video", "label": "VIDEO", "name": "動画"},
     {"id": "shop", "label": "SHOP", "name": "売っているもの"},
     {"id": "journal", "label": "JOURNAL", "name": "ブログ・SNS", "note": "雑記、気まぐれ更新"}
@@ -33,31 +33,31 @@
       {"title": "Kindleマンガ セール中の本一覧", "url": "https://mozk-books.com/manga-sale/"},
       {"title": "Kindleで無料・0円で読める本の棚", "url": "https://mozk-books.com/zero-sale/"}
     ], "url": "https://mozk-books.com/", "latest": {"title": "殺戮にいたる病499円・じんかん499円ほか｜Kindleセール（2026/11/08）", "url": "https://mozk-books.com/posts/sale-2026-11-08/", "date": "2026-11-08"}},
-    {"group": "tech", "name": "Qiita", "what": "仕事や個人開発でハマったところの解決メモを置いています。Google Apps ScriptやGA4の記事が中心で、最近はAIエージェントを調べた記事も書いています。", "forWho": "GASやGA4で同じところに詰まった人に", "works": [
+    {"group": "tech", "sub": "記事", "name": "Qiita", "what": "仕事や個人開発でハマったところの解決メモを置いています。Google Apps ScriptやGA4の記事が中心で、最近はAIエージェントを調べた記事も書いています。", "forWho": "GASやGA4で同じところに詰まった人に", "works": [
       {"title": "AIエージェントがAIエージェントに仕事を発注できる仕組み —— Virtuals ACP とは？調べてみた", "url": "https://qiita.com/MOZK_SEA/items/a991275e750195305437"},
       {"title": "メルカリの設計記事を自分の .claude/ に当ててみた　〜「軸」と「心構え」は点検に使えない 〜", "url": "https://qiita.com/MOZK_SEA/items/98a7f8a1ee34f9e4cdc3"},
       {"title": "GASで「Unreachable Service: analytics」エラーが出た", "url": "https://qiita.com/MOZK_SEA/items/2c125675a4822cbd8601"}
     ], "url": "https://qiita.com/MOZK_SEA", "latest": {"title": "AIエージェントがAIエージェントに仕事を発注できる仕組み —— Virtuals ACP とは？調べてみた", "url": "https://qiita.com/MOZK_SEA/items/a991275e750195305437", "date": "2026-09-23"}},
-    {"group": "tech", "name": "note", "what": "AIエージェント（Claude Code）と一緒に作業するときの運用を書いています。毎回の説明を省くファイルの置き方や、同じ失敗を繰り返させない指示の書き方など、実際に使っているやり方です。", "forWho": "Claude Code を使い始めて、指示の出し方に迷っている人に", "works": [
+    {"group": "tech", "sub": "記事", "name": "note", "what": "AIエージェント（Claude Code）と一緒に作業するときの運用を書いています。毎回の説明を省くファイルの置き方や、同じ失敗を繰り返させない指示の書き方など、実際に使っているやり方です。", "forWho": "Claude Code を使い始めて、指示の出し方に迷っている人に", "works": [
       {"title": "Claude Codeに同じ失敗を繰り返させないCLAUDE.mdの書き方", "url": "https://note.com/100_99_1e12/n/ne7494ea806c9"},
       {"title": "Claude Codeに毎回状況説明をしなくて済むTODO.md運用", "url": "https://note.com/100_99_1e12/n/n3ac20ae9b347"},
       {"title": "claude updateしても新機能が使えないときは、Claude Codeが2つ入っていないか見る", "url": "https://note.com/100_99_1e12/n/nbc505aa897a1"}
     ], "url": "https://note.com/100_99_1e12", "latest": {"title": "GA4、毎回開いて数字を拾う作業をやめるには？", "url": "https://note.com/100_99_1e12/n/n05da174e34de", "date": "2026-11-09"}},
-    {"group": "tech", "name": "vMozk（$MOZK）", "what": "AIエージェントを作って公開できる仕組み「Virtuals Protocol」で、2025年に作ったもずくの分身のAIエージェントです。AIやブロックチェーンの話題に興味がある海藻、という設定です。", "forWho": "AIエージェントやWeb3の実物を見てみたい人に", "works": [], "url": "https://app.virtuals.io/virtuals/21308"},
     {"group": "shop", "name": "LINEスタンプ", "thumb": "https://stickershop.line-scdn.net/stickershop/v1/product/37444849/LINEStorePC/main.png;v=7", "thumbFit": "contain", "what": "「耳毛ウーパールーパーおじさん」のスタンプを作っています。ゆるい返事や、ぼそっとしたひと言に使えるセリフ付きのスタンプです。", "forWho": "力の抜けた返事をスタンプで済ませたい人に", "works": [
       {"title": "耳毛ウーパールーパーの投げやり返事", "url": "https://store.line.me/stickershop/product/37724045/ja"},
     {"title": "ぼそっと耳毛ウーパールーパーおじさん", "url": "https://store.line.me/stickershop/product/37444849/ja"},
       {"title": "適当に返す耳毛ウーパールーパーおじさん", "url": "https://store.line.me/stickershop/product/36750025/ja"},
       {"title": "表情豊かな耳毛ウーパールーパーおじさん", "url": "https://store.line.me/stickershop/product/29482083/ja"}
     ], "url": "https://store.line.me/stickershop/author/5214317/ja", "urlLabel": "もずくのスタンプ一覧"},
-    {"group": "tech", "name": "ポケポケ デッキQR", "thumb": "https://mozk-umino.github.io/mozk-poke2-qr/assets/og.png", "what": "ポケポケのデッキをURLで共有し、ゲームで読み込めるQRコードにするツールです。デッキ作りが面倒になったので、AIにデッキを組ませて読み込めるようにしました。", "forWho": "ポケポケのデッキを考えるのが面倒になってきた人に", "works": [
+    {"group": "tech", "sub": "アプリ", "name": "ポケポケ デッキQR", "thumb": "https://mozk-umino.github.io/mozk-poke2-qr/assets/og.png", "what": "ポケポケのデッキをURLで共有し、ゲームで読み込めるQRコードにするツールです。デッキ作りが面倒になったので、AIにデッキを組ませて読み込めるようにしました。", "forWho": "ポケポケのデッキを考えるのが面倒になってきた人に", "works": [
       {"title": "ツールを開く", "url": "https://mozk-umino.github.io/mozk-poke2-qr/"},
       {"title": "作ったときの記事: ポケポケのデッキQRコードをAIに作らせるツールを作ってみた", "url": "https://mozukuofsea.hateblo.jp/entry/20261006/1791256899"}
     ], "url": "https://mozk-umino.github.io/mozk-poke2-qr/"},
-    {"group": "tech", "name": "ぱらえ", "thumb": "https://mozk-umino.github.io/parae/og.svg", "what": "スマホでパラパラマンガが作れるお絵かきメモです。コマを描いて、コピーして少しずつずらして、つなげて再生します。前のコマが薄く透ける透かし付きで、描いた絵は動画や画像で保存・共有できます。", "forWho": "スマホでパラパラマンガを作ってみたい人に", "works": [{"title": "アプリを開く", "url": "https://mozk-umino.github.io/parae/"}], "url": "https://mozk-umino.github.io/parae/"}, {"group": "tech", "name": "えごさ", "thumb": "https://mozk-umino.github.io/egosa/og.svg", "what": "日本語で検索すると英語のページだけを探して、そのまま読める道具です。単語・句・文をタップすると日本語訳が出て、調べた単語はふりがなとして貯まります。AIに「えごさで調べて」と頼むためのSkillも配っています。", "forWho": "英語の情報に当たりたいけれど、英語で探すところで止まってしまう人に", "works": [{"title": "アプリを開く", "url": "https://mozk-umino.github.io/egosa/"}, {"title": "考え方と使い方", "url": "https://mozk-umino.github.io/egosa/about.html"}, {"title": "えごさSkillの解説", "url": "https://mozk-umino.github.io/egosa/skill.html"}], "url": "https://mozk-umino.github.io/egosa/"}, {"group": "tech", "name": "キュージンヒョージェネレーター", "thumb": "https://mozk-umino.github.io/kyujinhyo-og.svg", "what": "名前を入れるだけで、架空の求人票が3件できるお遊びアプリです。DE-TEIUさんの「クソ職務経歴書ジェネレーター」で作った職務経歴書を応募に出すと、ウソ企業とのクソ適合度を診断します。", "forWho": "クソ職務経歴書の出し先を探している人に", "works": [
+    {"group": "tech", "sub": "アプリ", "name": "ぱらえ", "thumb": "https://mozk-umino.github.io/parae/og.svg", "what": "スマホでパラパラマンガが作れるお絵かきメモです。コマを描いて、コピーして少しずつずらして、つなげて再生します。前のコマが薄く透ける透かし付きで、描いた絵は動画や画像で保存・共有できます。", "forWho": "スマホでパラパラマンガを作ってみたい人に", "works": [{"title": "アプリを開く", "url": "https://mozk-umino.github.io/parae/"}], "url": "https://mozk-umino.github.io/parae/"}, {"group": "tech", "sub": "アプリ", "name": "えごさ", "thumb": "https://mozk-umino.github.io/egosa/og.svg", "what": "日本語で検索すると英語のページだけを探して、そのまま読める道具です。単語・句・文をタップすると日本語訳が出て、調べた単語はふりがなとして貯まります。AIに「えごさで調べて」と頼むためのSkillも配っています。", "forWho": "英語の情報に当たりたいけれど、英語で探すところで止まってしまう人に", "works": [{"title": "アプリを開く", "url": "https://mozk-umino.github.io/egosa/"}, {"title": "考え方と使い方", "url": "https://mozk-umino.github.io/egosa/about.html"}, {"title": "えごさSkillの解説", "url": "https://mozk-umino.github.io/egosa/skill.html"}], "url": "https://mozk-umino.github.io/egosa/"}, {"group": "tech", "sub": "アプリ", "name": "キュージンヒョージェネレーター", "thumb": "https://mozk-umino.github.io/kyujinhyo-og.svg", "what": "名前を入れるだけで、架空の求人票が3件できるお遊びアプリです。DE-TEIUさんの「クソ職務経歴書ジェネレーター」で作った職務経歴書を応募に出すと、ウソ企業とのクソ適合度を診断します。", "forWho": "クソ職務経歴書の出し先を探している人に", "works": [
       {"title": "アプリを開く", "url": "https://kyujinhyo.pages.dev/"},
       {"title": "作った経緯と使い方: 職務経歴書をでっち上げるアプリを見かけたので求人票をでっち上げるアプリで対抗（？）してみた", "url": "https://mozukuofsea.hateblo.jp/entry/20261103/1793699021"}
     ], "url": "https://kyujinhyo.pages.dev/"},
+    {"group": "tech", "sub": "アプリ", "name": "vMozk（$MOZK）", "what": "AIエージェントを作って公開できる仕組み「Virtuals Protocol」で、2025年に作ったもずくの分身のAIエージェントです。AIやブロックチェーンの話題に興味がある海藻、という設定です。", "forWho": "AIエージェントやWeb3の実物を見てみたい人に", "works": [], "url": "https://app.virtuals.io/virtuals/21308"},
     {"group": "shop", "name": "BOOTH", "thumb": "https://booth.pximg.net/c/620x620/dce8be4c-6f0d-4b1b-8797-5e23a85cdbfb/i/9119009/a4036312-934c-4cfa-b28e-dcf3d82abb69_base_resized.jpg", "thumbFit": "contain", "what": "ExcelとGoogleスプレッドシートで使える管理表を出品しています。年末調整やふるさと納税など会社員のお金手続きの記録や、配信の収入・経費の記録に使えます。", "forWho": "お金の記録を表でさっと始めたい人に", "works": [
       {"title": "会社員のお金手続きノート 2026（令和8年分）", "url": "https://mozk-latex.booth.pm/items/9119009"},
       {"title": "配信者 収益・経費ノート 2026（令和8年分）", "url": "https://mozk-latex.booth.pm/items/9031742"}
@@ -125,7 +125,9 @@ p{margin:0 0 8px}
 .hero h1{font-size:1.6rem;margin:14px 0 4px}
 .catch{font-weight:700;margin-bottom:14px;word-break:keep-all;overflow-wrap:anywhere}
 .intro{text-align:left;color:var(--sub);font-size:.92rem}
-.doors{display:grid;gap:8px;margin-top:20px}
+.summary-h{font-size:1.05rem;margin:22px 0 2px;text-align:left}
+.doors{display:grid;gap:8px;margin-top:10px}
+.subhead{font-size:.95rem;margin:20px 0 10px;padding-left:10px;border-left:3px solid var(--accent)}
 .doors a{display:block;text-align:left;text-decoration:none;color:inherit;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;padding:10px 14px}
 .doors a b{display:block}
 .doors a span{font-size:.8rem;color:var(--sub)}
@@ -181,10 +183,14 @@ footer p{margin-top:16px;font-size:.75rem;color:var(--sub)}
     <p class="catch">セール本と、AIとつくるものと、ゆらゆら雑記。</p>
     <p class="intro">Kindleのセール本を、価格を確かめてから紹介するサイトを運営しています。AIエージェントと一緒に、ツールや記事も作っています。ブログでは、ゲームやアプリでつまずいたことや日常のことを、気まぐれに書いています。</p>
     <a class="hero-cta" href="https://mozk-books.com/toshonator/" target="_blank" rel="noopener"><b>としょネーターで今日の1冊を探す</b><span>質問に答えると、案内役のももがセール本から1冊選びます</span></a>
-    <nav class="doors" aria-label="目的別の入口">
-      <a href="#books"><b>本を探しに来た人へ</b><span>セール本・無料本の棚と、今日読む本の選び方</span></a>
-      <a href="#tech"><b>AI・ものづくりを見たい人へ</b><span>技術メモ、AIエージェントとの作業、作ったツール</span></a>
-      <a href="#journal"><b>雑記・日常を読みたい人へ</b><span>ブログとSNS</span></a>
+    <h2 class="summary-h">やっていること</h2>
+    <nav class="doors" aria-label="やっていること">
+      <a href="#books"><b>もずくの本屋さん</b><span>Kindleのセール本を、価格を確かめてから紹介しています</span></a>
+      <a href="#tech"><b>作ったアプリ</b><span>ポケポケのデッキQR、パラパラマンガの「ぱらえ」、英語を読む「えごさ」など、AIと一緒に作った道具です</span></a>
+      <a href="#tech"><b>技術の記事</b><span>GASで詰まったところや、AIエージェントとの作業の記録を、Qiitaとnoteに書いています</span></a>
+      <a href="#video"><b>YouTube「もずくのなぜなぜ雑学」</b><span>日常の「なぜ？」を一次情報まで当たって調べる雑学動画です</span></a>
+      <a href="#shop"><b>売っているもの</b><span>LINEスタンプと、Excel・スプレッドシートの管理表を売っています</span></a>
+      <a href="#journal"><b>ブログとSNS</b><span>雑記ははてなブログ、近況やお知らせはXに書いています</span></a>
     </nav>
   </section>
 
@@ -194,7 +200,7 @@ footer p{margin-top:16px;font-size:.75rem;color:var(--sub)}
     <table>
       <tr><th>名前</th><td>もずく・らてっくす（もずく）</td></tr>
       <tr><th>やっていること</th><td>Kindleセール本の紹介／AIエージェントと一緒にツールや記事づくり／LINEスタンプ・管理表の制作／雑記ブログ</td></tr>
-      <tr><th>主な活動場所</th><td>もずくの本屋さん・はてなブログ・X</td></tr>
+      <tr><th>主な活動場所</th><td>もずくの本屋さん・YouTube・はてなブログ・X</td></tr>
     </table>
   </section>
 
@@ -240,7 +246,11 @@ for (const g of data.groups) {
       el('img', {src: c.thumb, alt: '店員さん1号（もも）', loading: 'lazy'}),
       el('div', {}, el('h3', {textContent: c.name}), el('p', {textContent: c.role}), ext(c.url, 'X: @momo_0book'))));
   }
-  for (const a of data.activities.filter(a => a.group === g.id)) {
+  let acts = data.activities.filter(a => a.group === g.id);
+  if (g.subs) acts = acts.slice().sort((x, y) => g.subs.indexOf(x.sub) - g.subs.indexOf(y.sub));
+  let curSub = null;
+  for (const a of acts) {
+    if (g.subs && a.sub && a.sub !== curSub) { curSub = a.sub; sec.append(el('h3', {className: 'subhead', textContent: a.sub})); }
     sec.append(el('div', {className: 'act'},
       ...(a.thumb ? [el('img', {className: 'act-thumb' + (a.thumbFit ? ' ' + a.thumbFit : ''), src: a.thumb, alt: '', loading: 'lazy'})] : []),
       el('h3', {textContent: a.name}),
